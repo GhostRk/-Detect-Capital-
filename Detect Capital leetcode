@@ -1,0 +1,50 @@
+class Solution {
+    
+   public boolean isUpperCase(char ch)
+   {
+       if(ch>='A' && ch<='Z')
+           return true;                 //method to check upper or lower case character
+       else
+           return false;
+   }
+    
+    // we are just counting upper case and lowercase letter in word
+    public boolean detectCapitalUse(String word) {
+        
+        int countU=0; //count of upper case char
+        int countL=0;//count of lowercase char
+        int n=word.length();
+        
+        for(int i=0;i<n;i++)
+        {
+            char ch=word.charAt(i);
+            
+            if(isUpperCase(ch)==true)
+            {
+                countU++;
+            }
+            else
+                countL++;
+                
+        }
+        
+        
+        
+        if((n-countU)==0)  //this means all letter are capital as it counts to word length
+            return true;
+        
+        else if((n-countL)==0) //this means all letter are small as it counts to word length
+            return true;
+        
+        else if(countU==1) //if one word is capital and it is the first word rhen its true
+        {
+            if(isUpperCase(word.charAt(0))==true)
+                return true;
+                
+        }
+        
+        
+            return false;
+        
+    }
+}
